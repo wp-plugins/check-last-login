@@ -1,0 +1,42 @@
+=== Rotating Links Widget ===
+Contributors: JohnnyPea
+Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=FUT8H7SGMYE5E
+Tags: registration,login,user
+Requires at least: 2.8
+Tested up to: 3.0.1
+Stable tag: 0.1
+
+Simple plugin which checks user's login status and displays registration date and last login date columns on the "Users" page.
+
+== Description ==
+
+This plugin checks whether user logs in within 30 days after the registration if he does not his account is deleted. It also adds registration date and last login date columns on the "Users" page.
+
+**I am open to suggestions to improve the plugin !**
+
+== Installation ==
+Activate the plugin.
+
+== Frequently Asked Questions ==
+
+= Can I email you with the support questions ? =
+
+No. Please use integrated forum support system.
+
+= Do you provide some extra "premium" customization ? =
+
+Yes. You can email me in this case.
+
+== Screenshots ==
+
+Checks user's login status
+
+== Changelog ==
+
+= 0.1 =
+initial release
+
+== Upgrade Notice ==
+
+= 0.1 =
+initial release
