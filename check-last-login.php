@@ -48,8 +48,8 @@ function users_manage_columns( $empty, $column_name, $userid) {
 		return  date( "j.n. Y G:i", strtotime($user_data->user_registered) );
 	} elseif( $column_name == 'last_log_in' ) {
 		$last_user_login = get_user_meta( $userid, 'last_user_login', TRUE );
-		if ( $last_user_login && $last_user_login == 'No login') {
-			return $last_user_login;
+		if ( ($last_user_login && $last_user_login == 'No login') || !$last_user_login ) {
+			return 'No login';
 		} elseif ( $last_user_login ) {
 			return date( "j.n. Y G:i", $last_user_login );
 		}

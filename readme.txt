@@ -36,7 +36,13 @@ Checks user's login status
 = 0.1 =
 initial release
 
+= 0.2 =
+tiny fix to display "No login" if user has no log in from the time of plugin activation
+
 == Upgrade Notice ==
 
 = 0.1 =
 initial release
+
+= 0.2 =
+tiny fix to display "No login" if user has no log in from the time of plugin activation
