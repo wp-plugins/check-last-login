@@ -45,7 +45,7 @@ function is_user_active() {
 function users_manage_columns( $empty, $column_name, $userid) {
 	$user_data = get_userdata( $userid );
 	if ( $column_name == 'registration_date' ) {
-		return  date( "j.n. Y G:i", strtotime($user_data->user_registered) );
+		return date( "j.n. Y G:i", strtotime($user_data->user_registered) );
 	} elseif( $column_name == 'last_log_in' ) {
 		$last_user_login = get_user_meta( $userid, 'last_user_login', TRUE );
 		if ( ($last_user_login && $last_user_login == 'No login') || !$last_user_login ) {
