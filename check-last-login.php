@@ -3,7 +3,7 @@
 Plugin Name: Check Last Login
 Plugin URI: http://www.techforum.sk/
 Description: Checks user's login status
-Version: 0.1
+Version: 0.2
 Author: Ján Bočínec
 Author URI: http://johnnypea.wp.sk/
 License: GPL2
