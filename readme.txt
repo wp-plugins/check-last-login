@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: registration,login,user
 Requires at least: 2.8
 Tested up to: 3.0.1
-Stable tag: 0.1
+Stable tag: 0.2
 
 Simple plugin which checks user's login status and displays registration date and last login date columns on the "Users" page.
 
