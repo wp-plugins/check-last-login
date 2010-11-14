@@ -52,14 +52,14 @@ function check_last_login_page() { ?>
 <?php }
 
 
-add_action('cron_daily_event', 'is_user_active');
+add_action('cll_cron_daily_event', 'is_user_active');
 
-if ( !wp_next_scheduled('my_task_hook') && get_option('allow_deletion') ) {
-	wp_schedule_event( time(), 'daily', 'cron_daily_event' );
+if ( !wp_next_scheduled('cll_cron_daily_event') && get_option('allow_deletion') ) {
+	wp_schedule_event( time(), 'daily', 'cll_cron_daily_event' );
 }
 
-if ( wp_next_scheduled('my_task_hook') && !get_option('allow_deletion') ) {
-	wp_clear_scheduled_hook('cron_daily_event');
+if ( wp_next_scheduled('cll_cron_daily_event') && !get_option('allow_deletion') ) {
+	wp_clear_scheduled_hook('cll_cron_daily_event');
 }
 
 function cron_deactivation() {
