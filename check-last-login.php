@@ -88,7 +88,7 @@ function is_user_active() {
 			wp_delete_user( $user_login['ID'] );	
 }
 
-function users_manage_columns( $empty, $column_name, $userid) {
+function cll_users_manage_columns( $empty, $column_name, $userid) {
 	$user_data = get_userdata( $userid );
 	if ( $column_name == 'registration_date' ) {
 		return date( "j.n. Y G:i", strtotime($user_data->user_registered) );
@@ -101,12 +101,12 @@ function users_manage_columns( $empty, $column_name, $userid) {
 		}
 	}
 }
-add_filter( 'manage_users_custom_column', 'users_manage_columns', 10, 3);
+add_filter( 'manage_users_custom_column', 'cll_users_manage_columns', 10, 3);
 
-function users_edit_columns($columns) {
+function cll_users_edit_columns($columns) {
 		$columns['registration_date'] = 'Registered';
 		$columns['last_log_in'] = 'Last log in';
 		return $columns;
 }
 // add custom columns
-add_filter( 'manage_users_columns', 'users_edit_columns');
+add_filter( 'manage_users_columns', 'cll_users_edit_columns');
