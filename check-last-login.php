@@ -63,7 +63,7 @@ if ( wp_next_scheduled('cll_cron_daily_event') && !get_option('allow_deletion') 
 }
 
 function cron_deactivation() {
-	wp_clear_scheduled_hook('cron_daily_event');
+	wp_clear_scheduled_hook('cll_cron_daily_event');
 }
 register_deactivation_hook(__FILE__, 'cron_deactivation');
 
