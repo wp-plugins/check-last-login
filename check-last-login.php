@@ -52,7 +52,7 @@ function check_last_login_page() { ?>
 <?php }
 
 
-add_action('cll_cron_daily_event', 'is_user_active');
+add_action('cll_cron_daily_event', 'cll_is_user_active');
 
 if ( !wp_next_scheduled('cll_cron_daily_event') && get_option('allow_deletion') ) {
 	wp_schedule_event( time(), 'daily', 'cll_cron_daily_event' );
@@ -72,13 +72,13 @@ function registration_login($user_ID) {
 }
 add_action('user_register', 'registration_login');
 
-function last_user_login($login) {
+function cll_last_user_login($login) {
     $user = get_userdatabylogin($login);
-    update_usermeta( $user->ID, 'last_user_login', time() );
+    update_usermeta( $user->ID, 'cll_last_user_login', time() );
 }
 add_action('wp_login','last_user_login');
 
-function is_user_active() {
+function cll_is_user_active() {
 	global $wpdb;
 	$inactive_days = get_option('inactive_days');
 	$last_user_login = $wpdb->get_results("SELECT * FROM $wpdb->users INNER JOIN $wpdb->usermeta ON ID = user_id WHERE meta_key  = 'last_user_login' AND meta_value = 'No login' AND DATEDIFF(NOW(),user_registered) >= $inactive_days", ARRAY_A);
