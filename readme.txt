@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: registration,login,user
 Requires at least: 2.8
 Tested up to: 3.0.1
-Stable tag: 0.3
+Stable tag: 0.4
 
 Simple plugin which checks user's login status and displays registration date and last login date columns on the "Users" page.
 
@@ -45,6 +45,9 @@ tiny fix to display "No login" if user has no log in from the time of plugin act
 = 0.3 =
 added settings page - now you can enable/disable the automatic user deletion and set the inactivity time after the registration
 
+= 0.3 =
+fix for wrong function included in wp_login action hook
+
 == Upgrade Notice ==
 
 = 0.1 =
@@ -54,4 +57,7 @@ initial release
 just update
 
 = 0.3 =
+just update
+
+= 0.4 =
 just update

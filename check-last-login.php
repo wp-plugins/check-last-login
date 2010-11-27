@@ -3,7 +3,7 @@
 Plugin Name: Check Last Login
 Plugin URI: http://www.techforum.sk/
 Description: Checks user's login status
-Version: 0.3
+Version: 0.4
 Author: Ján Bočínec
 Author URI: http://johnnypea.wp.sk/
 License: GPL2
@@ -62,21 +62,21 @@ if ( wp_next_scheduled('cll_cron_daily_event') && !get_option('allow_deletion') 
 	wp_clear_scheduled_hook('cll_cron_daily_event');
 }
 
-function cron_deactivation() {
+function cll_cron_deactivation() {
 	wp_clear_scheduled_hook('cll_cron_daily_event');
 }
-register_deactivation_hook(__FILE__, 'cron_deactivation');
+register_deactivation_hook(__FILE__, 'cll_cron_deactivation');
 
-function registration_login($user_ID) {
+function cll_registration_login($user_ID) {
 	update_usermeta( $user_ID, 'last_user_login', 'No login' );
 }
-add_action('user_register', 'registration_login');
+add_action('user_register', 'cll_registration_login');
 
 function cll_last_user_login($login) {
     $user = get_userdatabylogin($login);
     update_usermeta( $user->ID, 'cll_last_user_login', time() );
 }
-add_action('wp_login','last_user_login');
+add_action('wp_login','cll_last_user_login');
 
 function cll_is_user_active() {
 	global $wpdb;
