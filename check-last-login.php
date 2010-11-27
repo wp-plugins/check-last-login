@@ -3,12 +3,11 @@
 Plugin Name: Check Last Login
 Plugin URI: http://www.techforum.sk/
 Description: Checks user's login status
-Version: 0.4
+Version: 0.5
 Author: Ján Bočínec
 Author URI: http://johnnypea.wp.sk/
 License: GPL2
 */
-
 
 function check_last_login_menu() {
   	add_submenu_page('options-general.php', 'Check Last Login', 'Check Last Login', 'manage_options', 'check-last-login', 'check_last_login_page' );
@@ -68,13 +67,13 @@ function cll_cron_deactivation() {
 register_deactivation_hook(__FILE__, 'cll_cron_deactivation');
 
 function cll_registration_login($user_ID) {
-	update_usermeta( $user_ID, 'last_user_login', 'No login' );
+	update_user_meta( $user_ID, 'last_user_login', 'No login' );
 }
 add_action('user_register', 'cll_registration_login');
 
 function cll_last_user_login($login) {
     $user = get_userdatabylogin($login);
-    update_usermeta( $user->ID, 'cll_last_user_login', time() );
+    update_user_meta( $user->ID, 'last_user_login', time() );
 }
 add_action('wp_login','cll_last_user_login');
 
@@ -92,7 +91,7 @@ function cll_users_manage_columns( $empty, $column_name, $userid) {
 	$user_data = get_userdata( $userid );
 	if ( $column_name == 'registration_date' ) {
 		return date( "j.n. Y G:i", strtotime($user_data->user_registered) );
-	} elseif( $column_name == 'last_log_in' ) {
+	} elseif( $column_name == 'last_user_login' ) {
 		$last_user_login = get_user_meta( $userid, 'last_user_login', TRUE );
 		if ( ($last_user_login && $last_user_login == 'No login') || !$last_user_login ) {
 			return 'No login';
@@ -105,7 +104,7 @@ add_filter( 'manage_users_custom_column', 'cll_users_manage_columns', 10, 3);
 
 function cll_users_edit_columns($columns) {
 		$columns['registration_date'] = 'Registered';
-		$columns['last_log_in'] = 'Last log in';
+		$columns['last_user_login'] = 'Last log in';
 		return $columns;
 }
 // add custom columns
