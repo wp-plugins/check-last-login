@@ -45,7 +45,7 @@ tiny fix to display "No login" if user has no log in from the time of plugin act
 = 0.3 =
 added settings page - now you can enable/disable the automatic user deletion and set the inactivity time after the registration
 
-= 0.3 =
+= 0.4 =
 fix for wrong function included in wp_login action hook
 
 == Upgrade Notice ==
