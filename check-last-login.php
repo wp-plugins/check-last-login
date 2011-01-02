@@ -3,7 +3,7 @@
 Plugin Name: Check Last Login
 Plugin URI: http://www.techforum.sk/
 Description: Checks user's login status
-Version: 0.5
+Version: 0.6
 Author: Ján Bočínec
 Author URI: http://johnnypea.wp.sk/
 License: GPL2
@@ -79,7 +79,10 @@ add_action('wp_login','cll_last_user_login');
 
 function cll_is_user_active() {
 	global $wpdb;
-	$inactive_days = get_option('inactive_days');
+	
+	require_once(ABSPATH . 'wp-admin/includes/user.php');
+	
+	$inactive_days = ( get_option('inactive_days') ) ? get_option('inactive_days') : 30;
 	$last_user_login = $wpdb->get_results("SELECT * FROM $wpdb->users INNER JOIN $wpdb->usermeta ON ID = user_id WHERE meta_key  = 'last_user_login' AND meta_value = 'No login' AND DATEDIFF(NOW(),user_registered) >= $inactive_days", ARRAY_A);
 	
 	if ( $last_user_login )

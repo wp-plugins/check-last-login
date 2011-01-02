@@ -3,8 +3,8 @@ Contributors: JohnnyPea
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=FUT8H7SGMYE5E
 Tags: registration,login,user
 Requires at least: 2.8
-Tested up to: 3.0.1
-Stable tag: 0.5
+Tested up to: 3.0.4
+Stable tag: 0.6
 
 Simple plugin which checks user's login status and displays registration date and last login date columns on the "Users" page.
 
@@ -53,6 +53,9 @@ fix for wrong function included in wp_login action hook
 = 0.5 =
 another little enhancement - not using deprecated 'update_usermeta' but 'update_user_meta'
 
+= 0.6 =
+cron could not run the function because some of the functions was not declared
+
 == Upgrade Notice ==
 
 = 0.1 =
@@ -68,4 +71,7 @@ just update
 just update
 
 = 0.5 =
+just update
+
+= 0.6 =
 just update
